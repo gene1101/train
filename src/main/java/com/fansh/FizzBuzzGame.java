@@ -7,49 +7,49 @@ package com.fansh;
  * @since 2019/6/13
  */
 public class FizzBuzzGame {
-  private final int firstNum;
-  private final int secNum;
+  private final int firstSpecialNum;
+  private final int secondSpeicalNum;
 
-  public FizzBuzzGame(int firstNum, int secNum) {
-    this.firstNum = firstNum;
-    this.secNum = secNum;
+  public FizzBuzzGame(int firstSpecialNum, int secondSpeicalNum) {
+    this.firstSpecialNum = firstSpecialNum;
+    this.secondSpeicalNum = secondSpeicalNum;
   }
 
 
   public String say(int number) {
 
-    if (sayFizz(number) && sayBuzz(number)) {
+    if (isFizz(number) && isBuzz(number)) {
       return "FizzBuzz";
     }
 
-    if (sayFizz(number)) {
+    if (isFizz(number)) {
       return "Fizz";
     }
 
-    if (sayBuzz(number)) {
+    if (isBuzz(number)) {
       return "Buzz";
     }
 
     return String.valueOf(number);
   }
 
-  private boolean sayBuzz(int number) {
-    if (isContains(number) || isDivide(number)) {
+  private boolean isBuzz(int number) {
+    if (isContainsSpecialNumber(number, secondSpeicalNum) || isDivideSpecialNumber(number, secondSpeicalNum)) {
       return true;
     }
     return false;
   }
 
-  private boolean isDivide(int number) {
-    return number % secNum == 0;
+  private boolean isDivideSpecialNumber(int number, int specalNumber) {
+    return number % specalNumber == 0;
   }
 
-  private boolean isContains(int number) {
-    return String.valueOf(number).contains(String.valueOf(secNum));
+  private boolean isContainsSpecialNumber(int number, int specalNumber) {
+    return String.valueOf(number).contains(String.valueOf(specalNumber));
   }
 
-  private boolean sayFizz(int number) {
-    if (String.valueOf(number).contains(String.valueOf(firstNum)) || (number % firstNum == 0)) {
+  private boolean isFizz(int number) {
+    if (isContainsSpecialNumber(number, firstSpecialNum) || (isDivideSpecialNumber(number, firstSpecialNum))) {
       return true;
     }
     return false;
