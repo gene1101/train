@@ -34,10 +34,18 @@ public class FizzBuzzGame {
   }
 
   private boolean sayBuzz(int number) {
-    if (String.valueOf(number).contains(String.valueOf(secNum)) || (number % secNum == 0)) {
+    if (isContains(number) || isDivide(number)) {
       return true;
     }
     return false;
+  }
+
+  private boolean isDivide(int number) {
+    return number % secNum == 0;
+  }
+
+  private boolean isContains(int number) {
+    return String.valueOf(number).contains(String.valueOf(secNum));
   }
 
   private boolean sayFizz(int number) {
